@@ -1,0 +1,39 @@
+name: basic_cleaning
+conda_env: conda.yml
+
+entry_points:
+  main:
+    parameters:
+
+      input_artifact:
+        description: Artifact to clean after profiling
+        type: string
+
+      output_artifact:
+        description: Artifact after cleaning
+        type: string
+
+      output_type:
+        description: Type of the file
+        type: string
+
+      output_description:
+        description: What kind of operation was done for raw data
+        type: string
+
+      min_price:
+        description: Minimum rental price for filtering
+        type: float
+
+      max_price:
+        description: Maximum rental price for filtering
+        type: float
+
+
+    command: >-
+      python run.py --input_artifact {input_artifact} \
+                    --output_artifact {output_artifact} \
+                    --output_type {output_type} \
+                    --output_description {output_description} \
+                    --min_price {min_price} \
+                    --max_price {max_price}
